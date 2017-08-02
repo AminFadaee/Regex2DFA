@@ -74,13 +74,14 @@ def read_input(path):
     <alphabet ...>
     <alphabet N>
     <REGEX>
-    for more detail on the input please refer to Input_Formatting.md
+    for more detail on the input please refer to InOut_Formatting.md
     
     Args:
-        path: 
+        path: string, the path to the input file
 
     Returns:
-
+        list, containing the alphabets
+        string, containing the Regex
     '''
     alph = []
     file = open(path)
@@ -91,15 +92,21 @@ def read_input(path):
     return alph, lines[int(lines[0]) + 1].strip()
 
 
-def __main__():
-    ALPH, INPUT = read_input('Inputs\\Input1.txt')
+def regex2DFA():
+    # 1. Reading the input
+    ALPH, INPUT = read_input('Inputs\\Input2.txt')
+    # 2. Getting the tokens
     tokens = create_token_queue(INPUT)
+    # 3. Converting the tokens to post-order format
     post = create_postfix_token_queue(tokens)
+    # 4. Creating the tree
     t = Tree(post)
+    # 5. Creating the DFA
     d = DFA(ALPH, t)
+    # 6. Printing the results
     print(INPUT)
     print(t)
     print(d)
 
 
-__main__()
+regex2DFA()
