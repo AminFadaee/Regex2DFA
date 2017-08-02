@@ -15,7 +15,7 @@ class Node:
 
     '''
 
-    def __init__(self, type, label, id=None, left_child=None, righ_child=None):
+    def __init__(self, type, label, id=None, left_child=None, right_child=None):
         '''
         Constructor for the class Node.
         
@@ -24,12 +24,12 @@ class Node:
             label: label of a node ('.' for 'cat','*' for 'star','+' for 'or', and the actual label in the regex for 'identifier'
             id: integer, id of the node
             left_child: Node, representing the left child
-            righ_child: Node, representing the right child
+            right_child: Node, representing the right child
         '''
         self.id = id  # Each non empty-char tree leaf should have an integer id
         self.type = type
         self.left_child = left_child
-        self.right_child = righ_child
+        self.right_child = right_child
         self.label = label
         self.nullable = False  # True if we can derive empty-char from this node
         self.firstpos = set()  # firstpos of node (refer to documentation.md for detail).
@@ -157,12 +157,12 @@ class Tree:
             if token == '.':
                 left = stack.pop()
                 right = stack.pop()
-                temp = Node('cat', token, left_child=left, righ_child=right)
+                temp = Node('cat', token, left_child=left, right_child=right)
                 stack.append(temp)
             elif token == '+':
                 left = stack.pop()
                 right = stack.pop()
-                temp = Node('or', token, left_child=left, righ_child=right)
+                temp = Node('or', token, left_child=left, right_child=right)
                 stack.append(temp)
             elif token == '*':
                 left = stack.pop()  # Star node has only one child.
