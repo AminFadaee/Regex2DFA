@@ -1,7 +1,7 @@
 Regular Expression to DFA
 =========================
 ## Introduction:
-This project converts and arbitrary regular expression (Regex) to a DFA using the `Felan` algorithm by conducting the following steps:
+This project converts and arbitrary regular expression (Regex) to a DFA using a Syntax Tree and conducting the following steps:
 
 1. Converting the Regex to post-order format
 2. Creating the Annotated Syntax Tree of the Regex
