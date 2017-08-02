@@ -118,4 +118,4 @@ def regex2DFA(path):
     print(d)
 
 
-regex2DFA('Inputs\\Input2.txt')
+regex2DFA('Inputs\\Input4.txt')
