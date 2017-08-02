@@ -92,9 +92,18 @@ def read_input(path):
     return alph, lines[int(lines[0]) + 1].strip()
 
 
-def regex2DFA():
+def regex2DFA(path):
+    '''
+    Computes the DFA of a regular expression
+    
+    Args:
+        path: string, the path to the input file
+
+    Returns:
+        None
+    '''
     # 1. Reading the input
-    ALPH, INPUT = read_input('Inputs\\Input2.txt')
+    ALPH, INPUT = read_input(path)
     # 2. Getting the tokens
     tokens = create_token_queue(INPUT)
     # 3. Converting the tokens to post-order format
@@ -109,4 +118,4 @@ def regex2DFA():
     print(d)
 
 
-regex2DFA()
+regex2DFA('Inputs\\Input2.txt')
