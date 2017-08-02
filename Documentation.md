@@ -2,32 +2,34 @@
 Table of Contents
 =================
 - [Introduction](#introduction)
-- [Algorithm](#)
-    - [General Pseudocode #1](#)
-    1. [Pre-procsessings](#)
-        1. [Tokenization of the input regex into a list of tokens](#)
-        2. [Computing the post-order of the tokens](#)
-    2. [Constructing the Annotated Syntax Tree](#)
-        - [General Pseudocode #2](#)
-        1. [Class Node](#)
-            - [Example](#)
-            - [Attributes](#)
-            - [Methods](#)
-        2. [Class Tree](#)
-            - [Example](#)
-            - [Attributes](#)
-            - [Methods](#)
-    3. [Constructing the DFA](#)
+- [Algorithm](#algorithm)
+    - [General Pseudocode #1](#general-pseudocode-1)
+    1. [Pre-procsessings](#1-pre-procsessings)
+        1. [Tokenization of the input regex into a list of tokens](#11-tokenization-of-the-input-regex-into-a-list-of-tokens)
+        2. [Computing the post-order of the tokens](#12-computing-the-post-order-of-the-tokens)
+    2. [Constructing the Annotated Syntax Tree](#2-constructing-the-annotated-syntax-tree)
+        - [General Pseudocode #2](#general-pseudocode-2)
+        1. [Class Node](#21-class-node)
+            - [Example](#example)
+            - [Attributes](#attributes)
+            - [Methods](#methods)
+        2. [Class Tree](#22-class-tree)
+            - [Example](#example-1)
+            - [Attributes](#attributes-1)
+            - [Methods](#methods-1)
+    3. [Constructing the DFA](#3-constructing-the-dfa)
         - [General Pseudocode #3](#)
-        1. [Class State](#)
-            - [Attributes](#)
-            - [Methods](#)
-        2. [Class DFA](#)
-            - [Example](#)
-            - [Attributes](#)
-            - [Methods](#)
+        1. [Class State](#general-pseudocode-3)
+            - [Attributes](#attributes-2)
+            - [Methods](#methods-2)
+        2. [Class DFA](#32-class-dfa)
+            - [Example](#example-2)
+            - [Attributes](#attributes-3)
+            - [Methods](#methods-2)
+- [About Author](#about-author)
+- [License](#license)
 
-## Introduction: {# header1}
+## Introduction:
 This project converts and arbitrary regular expression (Regex) to a DFA that recognizes the language of this regex using a Syntax Tree and conducting the following steps:
 
 1. Converting the Regex to post-order format
@@ -219,3 +221,11 @@ Class representing the DFA that creates and store the DFA corresponding to the r
 - **post_processing**(): The post processing step to make the printing of the DFA more appealing.
         This function is not necessary to use.
 - **give_next_id**(): This function simply increments self.id_counter and return its previous value
+
+## About Author
+
+[Amin Fadaee](https://www.linkedin.com/in/aminfadaee/)
+
+## License
+
+The MIT License. Copyright (c) 2017 Amin Fadaee
