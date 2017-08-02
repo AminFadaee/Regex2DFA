@@ -1,12 +1,6 @@
 class State:
     '''
     Class for states that comprise the DFA
-    
-    Attributes:
-        id_set: set, Each state in a DFA is a compound of few tree leaves, id_set keeps all of these leaves
-        id: integer, the id a the state
-        transitions: dictionary of sets, with alphabets of regex as key and a set of tree leaves ids which 
-        in the end creates a single state
     '''
 
     def __init__(self, alphabet, id_list, id, terminal_id):
@@ -28,6 +22,29 @@ class State:
 
 
 class DFA:
+    '''
+    Class representing the DFA that creates and store the DFA corresponding to the regex.
+    
+    Examples:
+        >>> t = Tree(['a', '*', 'b', '*', '+'])
+        >>> t
+        .
+        |
+        |___+
+        |	|
+        |	|___*___b
+        |	|
+        |	|___*___a
+        |
+        |___#
+        >>> d = DFA(alphabet=['a','b'],tree=t)
+        >>> d
+        ->	1 	a : 2 	b : 3 	Final State
+            2 	a : 2 	b : 4 	Final State
+            3 	a : 4 	b : 3 	Final State
+            4 	a : 4 	b : 4
+
+    '''
     def __init__(self, alphabet, tree):
         '''
         Constructor for class DFA.
@@ -93,7 +110,6 @@ class DFA:
                         new = False
                 if new:
                     new_states.append(state.transitions[a])
-        print(new_states)
         return new_states
 
     def post_processing(self):
@@ -131,7 +147,7 @@ class DFA:
         self.id_counter += 1
         return id
 
-    def print_DFA(self):
+    def __str__(self):
         '''
         This function prints out the DFA
         
@@ -145,14 +161,19 @@ class DFA:
                 4	a : 4	b : 4	
         '''
         self.post_processing()
+        s = ''
         for state in self.states:
             if state.id == 1:
-                print('->', end='\t')
+                s = s+'->\t'
             else:
-                print('', end='\t')
-            print(state.id, end='\t')
+                s = s+'\t'
+            s= s+str(state.id)+' \t'
             for a in self.alphabet:
-                print(a, ':', state.transitions[a], end='\t')
+                s=s+str(a)+' : '+str(state.transitions[a])+' \t'
             if state.final:
-                print("Final State", end='')
-            print()
+                s=s+"Final State"
+            s+='\n'
+        return s
+
+    def __repr__(self):
+        return self.__str__()
