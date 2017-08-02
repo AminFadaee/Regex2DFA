@@ -12,6 +12,12 @@ The input for this project should follow a specific formatting.
 2. The concatenation is *not* done implicitly! Where ever you are concatenating two alphabets you **have to** use the `.` character:
     - Wrong: `ab*`
     - Right: `a.b*`
+3. The operations done in the Regex are the following (any other operation is not supported):
+    1. Concatenation, donoted by `.`
+    2. Kleene Star, denoted by `*`
+    3. Or, denoted by `+`
+    4. Arbitrary number of matching parenthesis `()`.
+
 ### Example:
 ```
 2
